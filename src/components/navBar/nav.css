@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.nav{
+    background-color: #17a08b;  
+    max-width: 100vw;
+    min-height: 50px;
+    
+}
+ .list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+    list-style: none;
+    padding-top: 0.5rem;
+    height: 100%;
+ }
+ 
+
