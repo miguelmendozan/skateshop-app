@@ -1,3 +1,16 @@
 .ItemList{
-    background-color: #92eaa2;
+    text-decoration: none;
+    background-color: #ffffff;
+    width: 100vmax;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    
+}
+.itemCard {
+    text-decoration: none;
+    margin-left: 4rem;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
 }
