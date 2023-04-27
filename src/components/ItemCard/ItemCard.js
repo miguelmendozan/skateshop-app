@@ -3,22 +3,21 @@ import * as React from 'react';
 import { CardActionArea, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 
-const ItemCard = ({ data }) => {
+const ItemCard = ( {data} ) => {
   return (
-    <Card sx={{ maxWidth: 345}}>
+    <Card sx={{ maxWidth: 350 }}>
       <CardActionArea>
         <CardMedia
-          component="img"
-          height="200"
+          component="img"     
           image={data.img}
-          alt="green iguana"
+          alt={data.name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {data.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {data.description}
+            {data.description} | ${data.price}
           </Typography>
         </CardContent>
       </CardActionArea>

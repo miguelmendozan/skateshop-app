@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
-import "./zapas.css"
+import "./skates.css"
+//Components
+import ItemCard from "../../components/ItemCard/ItemCard";
+
 //Firebase
 import { db } from "../../Firebase/FireBaseConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
 
-//components
-import ItemCard from "../../components/ItemCard/ItemCard";
-
-const Zapas = () => {
-  const [categoryZapas, setCategoryZapas] = useState([])
-
+const Skateboarding = () => {
+  const [categorySkate, setCategorySkate] = useState([]);
   useEffect(() => {
     const getCategory = async () => {
       const q = query(
         collection(db, "items"),
-        where("category", "==", "zapatos")
+        where("category", "==", "skate")
       );
       const docs = [];
       const querySnapshot = await getDocs(q);
@@ -22,18 +21,18 @@ const Zapas = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
 
-      setCategoryZapas(docs);
+      setCategorySkate(docs);
     };
     getCategory();
-  })
+  });
   return (
-    <div className="zapato-item">
-      <h1>Zapas</h1>
-      {categoryZapas.map((category) => {
-        return <ItemCard data={category} key={category.id} />
+    <div className="skate-item">
+      <h1>Skateboarding</h1>
+      {categorySkate.map((category) => {
+        return <ItemCard data={category} key={category.id} />;
       })}
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Zapas
+export default Skateboarding;

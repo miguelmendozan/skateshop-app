@@ -5,11 +5,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+
     
 }
 .itemCard {
     text-decoration: none;
-    margin-left: 4rem;
+    padding: 2rem;
 }
 a:link, a:visited, a:active {
     text-decoration:none;

@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import "./zapas.css"
+import "./ropa.css"
 //Firebase
 import { db } from "../../Firebase/FireBaseConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
-
-//components
+//Components 
 import ItemCard from "../../components/ItemCard/ItemCard";
-
-const Zapas = () => {
-  const [categoryZapas, setCategoryZapas] = useState([])
+const Ropa = () => {
+  const [categoryRopa, setCategoryRopa] = useState([])
 
   useEffect(() => {
     const getCategory = async () => {
       const q = query(
         collection(db, "items"),
-        where("category", "==", "zapatos")
+        where("category", "==", "ropa")
       );
       const docs = [];
       const querySnapshot = await getDocs(q);
@@ -22,18 +20,18 @@ const Zapas = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
 
-      setCategoryZapas(docs);
+      setCategoryRopa(docs);
     };
     getCategory();
   })
   return (
-    <div className="zapato-item">
-      <h1>Zapas</h1>
-      {categoryZapas.map((category) => {
-        return <ItemCard data={category} key={category.id} />
+    <div className="ropa-item">
+      <h1>Ropa</h1>
+      {categoryRopa.map((category) => {
+        return <ItemCard data={category} key={category.id}/>
       })}
-      </div>
+    </div>
   )
 }
 
-export default Zapas
+export default Ropa
