@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./zapas.css"
+import {Link} from "react-router-dom"
 //Firebase
 import { db } from "../../Firebase/FireBaseConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
 
 //components
 import ItemCard from "../../components/ItemCard/ItemCard";
+
 
 const Zapas = () => {
   const [categoryZapas, setCategoryZapas] = useState([])
@@ -30,7 +32,9 @@ const Zapas = () => {
     <div className="zapato-item">
       <h1>Zapas</h1>
       {categoryZapas.map((category) => {
-        return <ItemCard data={category} key={category.id} />
+        return <Link to={`/product-detail/${category.id}`}>
+            <ItemCard data={category} key={category.id} />
+        </Link>
       })}
       </div>
   )

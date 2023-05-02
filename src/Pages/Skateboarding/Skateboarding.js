@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import "./skates.css"
+import { Link } from "react-router-dom";
+import "./skates.css";
 //Components
 import ItemCard from "../../components/ItemCard/ItemCard";
+
 
 //Firebase
 import { db } from "../../Firebase/FireBaseConfig";
@@ -29,7 +31,11 @@ const Skateboarding = () => {
     <div className="skate-item">
       <h1>Skateboarding</h1>
       {categorySkate.map((category) => {
-        return <ItemCard data={category} key={category.id} />;
+        return (
+          <Link to={`/product-detail/${category.id}`}>
+            <ItemCard data={category} key={category.id} />
+          </Link>
+        );
       })}
     </div>
   );

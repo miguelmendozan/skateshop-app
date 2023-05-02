@@ -18,7 +18,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const ShopBag = () => {
 
 
-  const [cart, setCart] = useContext(CartContext)
+  const [cart] = useContext(CartContext)
 
   const quantity = cart.reduce((total, current) => {
     return total + current.quantity
